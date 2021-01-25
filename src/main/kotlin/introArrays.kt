@@ -1,33 +1,24 @@
 fun main() {
 
-    val serie: IntRange = 1.rangeTo(10)
-    for (s in serie) {
-        print("$s ")
-    }
+    val idades: IntArray = intArrayOf(10, 12, 18, 33, 40, 67)
+    val maiorIdade = idades.max()
+    println("Maior idade: $maiorIdade")
 
-    println()
+    val menorIdade = idades.min()
+    println("Menor idade: $menorIdade")
 
-//    val numerosPares = 0..100 step 2
-    val numerosPares = 2.until(100) step 2
+    val media = idades.average()
+    println("Média: $media")
 
-    for (numeroPar in numerosPares) {
-        print("$numeroPar ")
-    }
+    val todosMaiores = idades.all { it >= 18 }
+    println("Todos maiores? $todosMaiores")
 
-    println()
-    val numerosParesReverso = 100 downTo 0 step 2
-    numerosParesReverso.forEach { print("$it ") }
+    val existeMaior = idades.any { it >= 18 }
+    println("Algum alu é maior de idade? $existeMaior")
 
-    println()
-    val intervalo = 1500.0..5000.0
-    val salario = 5001.0
-    if (salario in intervalo) {
-        println("Está dentro do intervalo")
-    } else {
-        println("Não está dentro do intervalo")
-    }
+    val maiores = idades.filter { it >= 18 }
+    println("Maiores: $maiores")
 
-    val alfabeto = 'a'..'z'
-    val letra = '1'
-    println(letra in alfabeto)
+    val busca = idades.find { it > 18 }
+    println("Busca: $busca")
 }
