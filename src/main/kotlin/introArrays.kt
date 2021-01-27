@@ -25,6 +25,16 @@ fun main() {
     }
 
     println(gastoTotal)
+
+//    val salariosOrdenados = salariosComAumento.sorted()
+//    val tresUltimosSalarios: Array<BigDecimal> = salariosOrdenados.takeLast(3).toTypedArray()
+//    val media = tresUltimosSalarios.media()
+    val media = salariosComAumento.sorted().takeLast(3).toTypedArray().media()
+    println(media)
+
+    val mediaMenoresSalarios = salariosComAumento.sorted().take(3).toTypedArray().media()
+    println(mediaMenoresSalarios)
+
 }
 
 private fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal) =
@@ -34,14 +44,3 @@ private fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal) =
         (salario * aumento).setScale(2, RoundingMode.UP)
     }
 
-fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
-    return Array<BigDecimal>(valores.size) { i ->
-        valores[i].toBigDecimal()
-    }
-}
-
-fun Array<BigDecimal>.somatoria(): BigDecimal{
-    return this.reduce { acumulador, valor ->
-        acumulador + valor
-    }
-}
