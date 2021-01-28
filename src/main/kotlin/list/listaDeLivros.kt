@@ -52,6 +52,15 @@ fun main() {
     ordenadoPorTitulo.imprimeComMarcadores()
 
     livros.sortedBy { it.autor }.imprimeComMarcadores()
+
+    val titulos: List<String> = listaDeLivros
+        .filter { it.autor.startsWith("J") } // poderia ser também -> it.autor == "João Guimarães Rosa"
+        .sortedBy { it.anoPublicacao }
+        .map { it.titulo } // Aqui poderia ser -> .imprimeComMarcadores() no lugar de mapear para o tipo String
+        // e sem a necessidade de criar a variável titulos, já imprimir diretamente.
+
+    println(titulos)
+
 }
 
 fun List<Livro>.imprimeComMarcadores(){
